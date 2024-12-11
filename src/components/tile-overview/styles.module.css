@@ -1,0 +1,49 @@
+.tile {
+  padding: 16px;
+  max-width: 328px;
+  height: auto;
+  background-color: #FFF;
+  border-radius: 16px;
+}
+
+.ticketHeader {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.ticketInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ticketInfo::after {
+  content: '';
+  display: block;
+  height: 1px; 
+  width: 100%;
+  max-width: 296px;
+  background-color: rgba(219, 219, 219, 1);
+  margin: 4px;
+}
+
+.inProgress {
+  background-color: rgba(93, 93, 93, 1);  
+}
+
+.overdue {
+  background-color: rgba(249, 55, 44, 1);
+}
+
+.completed {
+  background-color: rgba(28, 154, 19, 1);
+}
+
+.feedback {
+  background-color: rgba(1, 158, 193, 1);
+}
+
+.technologicalIcon {
+  width: 10px;
+  height: 10px;
+}

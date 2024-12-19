@@ -21,10 +21,10 @@ export const TileHeader = ({
   tileNumber,
   tileType,
   status,
-  isTechnological
+  isTechnological = false
 }: Props) => {
   const currentStatus = getCurrentStatus(status, tileType);
-
+  
   return (
     <div className={style.header}>
       <div 
@@ -35,11 +35,9 @@ export const TileHeader = ({
       >
         <p className={style.number}>№ {tileNumber.toLocaleString('ru-RU')}</p>
       </div>
-      {currentStatus && (
         <p className={style.status}>
           {currentStatus}
         </p>
-      )}
       {isTechnological && <span className={style.technologicalIcon}>⚙️</span>}
     </div>
   )

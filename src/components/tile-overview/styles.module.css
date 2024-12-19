@@ -1,14 +1,16 @@
 .tile {
-  max-width: 328px;
+  width: 328px;
   height: auto;
   background-color: #FFF;
   border-radius: 16px;
   font-size: 16px;
   font-weight: 500;
+  margin-right: 24px;
 }
 
 .header {
   display: flex;
+  align-items: center;
   margin-bottom: 8px;
 }
 
@@ -31,12 +33,20 @@
 }
 
 .technologicalIcon {
-  width: 10px;
-  height: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.fullname {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ticketInfo {
-  padding: 16px;
+  padding: 16px 16px 0px 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -56,21 +66,22 @@
 }
 
 .description {
-  padding: 16px;
+  padding: 0px 16px 0px;
   position: relative;
   overflow: hidden; 
   font-size: 14px;
   font-weight: 400;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 .truncatedDescription {
   display: -webkit-box; 
   display: -moz-box;    
   display: -ms-box;     
-  display: box;        
 
-  -webkit-line-clamp: 3; 
-  line-clamp: 3;         
+  -webkit-line-clamp: 5; 
+  line-clamp: 5;         
 
   -webkit-box-orient: vertical; 
   overflow: hidden; 
@@ -97,7 +108,7 @@
 .readMoreButton {
   position: relative;
   pointer-events: auto; 
-  margin-top: 8px;
+  margin-top: 16px;
   width: 168px;
   height: 40px;
   background-color: transparent;

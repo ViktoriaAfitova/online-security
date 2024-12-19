@@ -1,21 +1,19 @@
-import { useState } from 'react';
 import style from './styles.module.css';
 import { TileHeader } from './TileHeader';
-
-interface Location {
-  name: string;
-  city: string;
-  street: string;
-}
+import { Client, TileInfo } from './TileInfo';
+import { Location } from './TileInfo';
+import { TileDescription } from './TileDescription';
 
 interface Props {
   id: string;
   tileNumber: number;
   createdAt: string;
+  duration?: number;
   controlDate: string;
   completedAt?: string;
   system: string;
   tileType: string;
+  client: Client;
   location: Location;
   description: string;
   status: Array<string>; 
@@ -27,18 +25,18 @@ export const TileOverview = ({
   id,
   tileNumber,
   createdAt,
+  duration,
   controlDate,
   completedAt,
   system,
   tileType,
+  client,
   location,
   description,
   status,
   isTechnological
 }: Props) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleExpand = () => setIsExpanded((prevState) => !prevState);
+  const isExpanded = false;
 
   return (
     <div className={`${id} ${style.tile} ${isExpanded ? style.expanded : ''}`}>
@@ -48,27 +46,19 @@ export const TileOverview = ({
         status={status} 
         isTechnological={isTechnological}
       />
-      <div className={style.ticketInfo}>
-        <span>Создана: {createdAt}</span>
-        <span>
-          {completedAt ? `Выполнена: ${completedAt}` : `Контроль: ${controlDate}`}
-        </span>
-        <span>Система: {system}</span>
-        <span>Тип: {tileType}</span>
-        <span>
-          Объект: {location.city}, {location.street}, {location.name}
-        </span>
-      </div>
-      <div className={style.description}>
-        <p className={isExpanded ? style.fullDescription : style.truncatedDescription}>
-          {description}
-        </p>
-        <div className={style.overlay}>
-          <button className={style.readMoreButton} onClick={toggleExpand}>
-            {isExpanded ? 'Свернуть' : 'Читать далее'}
-          </button>   
-        </div>
-      </div>
+      <TileInfo 
+        createdAt={createdAt}
+        controlDate={controlDate}
+        completedAt={completedAt}
+        system={system}
+        tileType={tileType} 
+        client={client}
+        location={location}
+        duration={duration}      
+      />
+      <TileDescription
+        description={description}      
+      />
     </div>
   );
 };

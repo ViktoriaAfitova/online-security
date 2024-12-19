@@ -11,31 +11,35 @@ export const TilePage = () => {
   return (
     <section className={style.section}>
       {Object.entries(Statuses).map(([key, value]) => (
-        <div key={key} className={style.column}>
+        <div key={key} className={style.tiles}>
         <h2 className={style.title}>{value}</h2>
-          <div className={style.tiles}>
-            {filteredTileByStatus(value).map((tile) => (
-              <TileOverview
-                key={tile.id}
-                id={tile.id}
-                tileNumber={tile.tileNumber}
-                createdAt={tile.createdAt}
-                controlDate={tile.controlDate}
-                completedAt={tile.completedAt}
-                system={tile.system}
-                tileType={tile.tileType}
-                location={{
-                  name: tile.location.name,
-                  city: tile.location.city,
-                  street: tile.location.street
-                }} 
-                description={tile.description} 
-                status={tile.status} 
-                isTechnological={false} 
-                files={tile.files}
-              />
-            ))}
-          </div>
+          {filteredTileByStatus(value).map((tile) => (
+            <TileOverview
+              key={tile.id}
+              id={tile.id}
+              tileNumber={tile.tileNumber}
+              createdAt={tile.createdAt}
+              duration={tile.duration}
+              controlDate={tile.controlDate}
+              completedAt={tile.completedAt}
+              system={tile.system}
+              tileType={tile.tileType}
+              client={{
+                surname: tile.client.surname,
+                name: tile.client.lastname,
+                lastname: tile.client.lastname
+              }}
+              location={{
+                name: tile.location.name,
+                city: tile.location.city,
+                street: tile.location.street
+              }} 
+              description={tile.description} 
+              status={tile.status} 
+              isTechnological={tile.isTechnological}
+              files={tile.files}
+            />
+          ))}
         </div>
       ))}
     </section> 

@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import style from './styles.module.css';
+import { TileHeader } from './TileHeader';
 
 interface Location {
   name: string;
@@ -34,17 +36,18 @@ export const TileOverview = ({
   status,
   isTechnological
 }: Props) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => setIsExpanded((prevState) => !prevState);
+
   return (
-    <div className={`${id} ${style.tile}`}>
-      <div className={style.ticketHeader}>
-        <div className={style.tileNumber}>№ {tileNumber}</div>
-          {status.map((currentStatus, index) => (
-            <p key={index} className={style.status}>
-              {currentStatus}
-            </p>
-          ))}
-        {isTechnological && <span className={style.technologicalIcon}>⚙️</span>}
-      </div>
+    <div className={`${id} ${style.tile} ${isExpanded ? style.expanded : ''}`}>
+      <TileHeader 
+        tileNumber={tileNumber} 
+        tileType={tileType} 
+        status={status} 
+        isTechnological={isTechnological}
+      />
       <div className={style.ticketInfo}>
         <span>Создана: {createdAt}</span>
         <span>
@@ -57,7 +60,14 @@ export const TileOverview = ({
         </span>
       </div>
       <div className={style.description}>
-        <p>{description}</p>
+        <p className={isExpanded ? style.fullDescription : style.truncatedDescription}>
+          {description}
+        </p>
+        <div className={style.overlay}>
+          <button className={style.readMoreButton} onClick={toggleExpand}>
+            {isExpanded ? 'Свернуть' : 'Читать далее'}
+          </button>   
+        </div>
       </div>
     </div>
   );

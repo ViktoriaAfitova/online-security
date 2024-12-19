@@ -1,20 +1,48 @@
 .tile {
-  padding: 16px;
   max-width: 328px;
   height: auto;
   background-color: #FFF;
   border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.ticketHeader {
+.header {
   display: flex;
   margin-bottom: 8px;
 }
 
+.tileNumber {
+  width: 103px;
+  height: 40px;
+  padding: 0;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: #FFF;
+  background-color: rgba(93, 93, 93, 1); 
+}
+
+.number {
+  padding: 10px 16px;
+}
+
+.status {
+  margin-left: 8px;
+}
+
+.technologicalIcon {
+  width: 10px;
+  height: 10px;
+}
+
 .ticketInfo {
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .ticketInfo::after {
@@ -27,23 +55,53 @@
   margin: 4px;
 }
 
-.inProgress {
-  background-color: rgba(93, 93, 93, 1);  
+.description {
+  padding: 16px;
+  position: relative;
+  overflow: hidden; 
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.overdue {
-  background-color: rgba(249, 55, 44, 1);
+.truncatedDescription {
+  display: -webkit-box; 
+  display: -moz-box;    
+  display: -ms-box;     
+  display: box;        
+
+  -webkit-line-clamp: 3; 
+  line-clamp: 3;         
+
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
 }
 
-.completed {
-  background-color: rgba(28, 154, 19, 1);
+.fullDescription {
+  display: block;
+  overflow: visible;
 }
 
-.feedback {
-  background-color: rgba(1, 158, 193, 1);
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px; 
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) -28.11%, #FFFFFF 43.96%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none; 
 }
 
-.technologicalIcon {
-  width: 10px;
-  height: 10px;
+.readMoreButton {
+  position: relative;
+  pointer-events: auto; 
+  margin-top: 8px;
+  width: 168px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  color: rgba(233, 87, 33, 1);
+  cursor: pointer;
 }

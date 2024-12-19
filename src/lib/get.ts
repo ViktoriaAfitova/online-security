@@ -1,7 +1,7 @@
 export const tiles = [
   {
     id: '1',
-    tileNumber: 10,
+    tileNumber: 10000,
     createdAt: '15.11.2024 09:15',
     controlDate: '20.11.2024 09:15',
     system: 'СКУД | Неисправность',
@@ -18,7 +18,7 @@ export const tiles = [
   },
   {
     id: '2',
-    tileNumber: 10,
+    tileNumber: 10000,
     createdAt: '15.11.2024 09:15',
     controlDate: '20.11.2024 09:15',
     system: 'СКУД | Неисправность',
@@ -35,7 +35,7 @@ export const tiles = [
   },
   {
     id: '3',
-    tileNumber: 10,
+    tileNumber: 10000,
     createdAt: '15.11.2024 09:15 (5 дней)',
     controlDate: '20.11.2024 09:15',
     completedAt: '20.11.2024 09:15',
@@ -53,7 +53,7 @@ export const tiles = [
   },
   {
     id: '4',
-    tileNumber: 10,
+    tileNumber: 10000,
     createdAt: '15.11.2024 09:15 (5 дней)',
     controlDate: '20.11.2024 09:15',
     completedAt: '20.11.2024 09:15',

@@ -23,6 +23,7 @@
   border-bottom-right-radius: 16px;
   color: #FFF;
   background-color: rgba(93, 93, 93, 1); 
+  white-space: nowrap;
 }
 
 .number {
@@ -44,6 +45,7 @@
 }
 
 .technologicalIcon {
+  margin-left: 4px;
   width: 24px;
   height: 24px;
 }
@@ -69,17 +71,20 @@
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
 }
 
 .keyColumn {
   display: flex;
-  width: 100px;
+  width: 80px;
   flex-direction: column;
 }
 
 .valueColumn {
-  max-width: 200px;
+  max-width: 150px;
   display: flex;
   flex-direction: column;
 }
@@ -124,7 +129,6 @@
 }
 
 .name {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -218,3 +222,9 @@
   cursor: pointer;
   margin-bottom: 10px;
 }
+
+@media (max-width: 768px) {
+  .tile {
+    flex-wrap: wrap;
+  }
+} 

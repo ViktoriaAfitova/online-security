@@ -34,10 +34,10 @@ export const TileHeader = ({
       >
         <p className={style.number}>№ {tileNumber.toLocaleString('ru-RU')}</p>
       </div>
-        <p className={style.status}>
-          {currentStatus.join(', ')}
-        </p>
-      {isTechnological && <span className={style.technologicalIcon}>⚙️</span>}
+      <p className={style.status}>                  
+        {currentStatus.join(', ')}
+        {isTechnological && <span className={style.technologicalIcon}>⚙️</span>}
+      </p>
     </div>
   )
 };

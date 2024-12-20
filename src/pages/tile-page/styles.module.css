@@ -1,6 +1,8 @@
 .section {
   margin: 124px 20px;
   display: flex;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 .title {
@@ -12,6 +14,10 @@
 
 @media (max-width: 1024px) {
   .section {
+    margin: 24px 10px;
     flex-wrap: wrap;
+  }
+  .title {
+    margin-bottom: 24px;
   }
 } 

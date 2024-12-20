@@ -3,8 +3,8 @@ import { Statuses } from '../../lib/constants/statuses';
 import { tiles } from '../../lib/get';
 import style from './styles.module.css';
 
-const filteredTileByStatus = (type: string) => {
-  return tiles.filter(tile => tile.tileType.includes(type));
+const filteredTileByStatus = (status: string) => {
+  return tiles.filter(tile => tile.status.includes(status));
 };
 
 export const TilePage = () => {
@@ -26,7 +26,7 @@ export const TilePage = () => {
               tileType={tile.tileType}
               client={{
                 surname: tile.client.surname,
-                name: tile.client.lastname,
+                name: tile.client.name,
                 lastname: tile.client.lastname
               }}
               location={{

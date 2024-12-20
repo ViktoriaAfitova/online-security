@@ -72,4 +72,4 @@ export const TileInfo = ({
     </span>
   </div>
   )
-}
+};

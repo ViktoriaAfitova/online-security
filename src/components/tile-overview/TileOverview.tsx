@@ -41,8 +41,7 @@ export const TileOverview = ({
   return (
     <div className={`${id} ${style.tile} ${isExpanded ? style.expanded : ''}`}>
       <TileHeader 
-        tileNumber={tileNumber} 
-        tileType={tileType} 
+        tileNumber={tileNumber}
         status={status} 
         isTechnological={isTechnological}
       />

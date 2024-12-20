@@ -6,22 +6,29 @@ type Props = {
 }
 
 export const TileDescription = ({
-  description
+  description,
 }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => setIsExpanded((prevState) => !prevState);
-  
+
   return (
-    <div className={style.description}>
-    <p className={isExpanded ? style.fullDescription : style.truncatedDescription}>
-      {description}
-    </p>
-    <div className={style.overlay}>
-      <button className={style.readMoreButton} onClick={toggleExpand}>
-        {isExpanded ? '▲ Свернуть' : '▼ Читать далее'}
-      </button>   
+    <div className={`${style.description} ${isExpanded ? style.expanded : ''}`}>
+      <p className={isExpanded ? style.fullDescription : style.truncatedDescription}>
+        {description}
+      </p>
+      {!isExpanded && (
+        <div className={style.overlay}>
+          <button className={style.readMoreButton} onClick={toggleExpand}>
+            ▼ Читать далее
+          </button>
+        </div>
+      )}
+      {isExpanded && (
+        <button className={style.readMoreButtonExpanded} onClick={toggleExpand}>
+          ▲ Свернуть
+        </button>
+      )}
     </div>
-  </div>
-  )
+  );
 };

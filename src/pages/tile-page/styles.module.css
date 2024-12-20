@@ -10,7 +10,7 @@
   margin-bottom: 48px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .section {
     flex-wrap: wrap;
   }

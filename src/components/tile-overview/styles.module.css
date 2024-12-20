@@ -1,11 +1,12 @@
 .tile {
-  width: 328px;
+  max-width: 328px;
   height: auto;
   background-color: #FFF;
   border-radius: 16px;
   font-size: 16px;
   font-weight: 500;
   margin-right: 24px;
+  margin-bottom: 20px;
 }
 
 .header {
@@ -26,23 +27,25 @@
 
 .number {
   padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: rgba(255, 255, 255, 1);
 }
 
 .status {
-  margin-left: 8px;
+  margin-left: 8px;  
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: rgba(34, 34, 34, 1);
 }
 
 .technologicalIcon {
   width: 24px;
   height: 24px;
-}
-
-.fullname {
-  display: inline-block;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .ticketInfo {
@@ -63,6 +66,71 @@
   max-width: 296px;
   background-color: rgba(219, 219, 219, 1);
   margin: 4px;
+}
+
+.container {
+  display: flex;
+}
+
+.keyColumn {
+  display: flex;
+  width: 100px;
+  flex-direction: column;
+}
+
+.valueColumn {
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.keyColumn p {
+  max-width: 300px;
+  margin-bottom: 8px; 
+}
+
+.valueColumn span {
+  margin-bottom: 8px; 
+}
+
+.creation,
+.completed,
+.control,
+.system,
+.fullname,
+.object {
+  display: inline-block;
+  width: 300px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: rgba(68, 68, 68, 1);
+}
+
+.createdAt,
+.completedAt,
+.controlAt,
+.duration,
+.tileType,
+.name,
+.address {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: rgba(34, 34, 34, 1);
+  white-space: nowrap;
+}
+
+.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.address {
+  white-space: wrap;
 }
 
 .description {

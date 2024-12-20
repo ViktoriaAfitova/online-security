@@ -36,16 +36,16 @@ export const TileInfo = ({
   client,
   location
 }: Props) => {
-  const containerRef = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const [displayedName, setDisplayedName] = useState('');
 
   useEffect(() => {
     const fullName = `${client.surname} ${client.name[0]}. ${client.lastname[0]}.`;
 
-    if (containerRef.current) {
-      containerRef.current.textContent = fullName;
+    if (ref.current) {
+      ref.current.textContent = fullName;
 
-      if (containerRef.current.scrollWidth > containerRef.current.offsetWidth) {
+      if (ref.current.scrollWidth > ref.current.offsetWidth) {
         const shortenedName = `${client.surname} ${client.name[0]}. &hellip;`;
         setDisplayedName(shortenedName);
       } else {
@@ -53,23 +53,37 @@ export const TileInfo = ({
       }
     }
   }, [client]);
-  
+
   return (
     <div className={style.ticketInfo}>
-    <span>Создана: {formatDate(createdAt)}</span>
-      {duration && (
-        <span>({getDuration(duration)})</span>
-      )}
-    <span>
-      {completedAt ? `Выполнена: ${formatDate(completedAt)}` : `Контроль: ${formatDate(controlDate)}`}
-    </span>
-    <span>Система: {system} &#448; {tileType}</span>
-    <span ref={containerRef} className={style.fullname}>
-      ФИО: {displayedName}
-    </span>
-    <span>
-      Объект: {location.name}&#44; {location.city}&#44; {location.street} 
-    </span>
-  </div>
+      <div className={style.container}>
+        <div className={style.keyColumn}>
+          <p className={style.creation}>Создана:</p> 
+          {completedAt ? (
+            <p className={style.completed}>Выполнена:</p>
+              ) : (
+            <p className={style.control}>Контроль:</p>
+          )}      
+          <p className={style.system}>Система:</p>
+          <p className={style.fullname}>ФИО:</p>
+          <p className={style.object}>Объект:</p>
+        </div>
+        <div className={style.valueColumn}>
+          <span className={style.createdAt}>{formatDate(createdAt)}{' '}       
+            {duration && (
+              <span className={style.duration}>({getDuration(duration)})</span>
+            )}
+          </span>        
+          {completedAt ? (
+            <span className={style.completedAt}>{formatDate(completedAt)}</span>
+              ) : (
+            <span className={style.controlAt}>{formatDate(controlDate)}</span>
+          )}
+          <span className={style.tileType}>{system} &#448; {tileType}</span>
+          <span className={style.name} ref={ref}>{displayedName}</span>
+          <span className={style.address}>{location.name}&#44; {location.city}&#44; {location.street}</span>
+        </div> 
+      </div> 
+    </div>
   )
 };
